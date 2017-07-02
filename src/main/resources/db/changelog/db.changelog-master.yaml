@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: guotao
+      changes:
+        - createTable:
+            tableName: people
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: sex
+                  type: varchar(255)
+
+        - loadData:
+            encoding: UTF-8
+            file: db/changelog/peoples.csv
+            separator: ;
+            tableName: people
